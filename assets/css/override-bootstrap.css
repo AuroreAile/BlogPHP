@@ -1,3 +1,7 @@
+body {
+    max-width: 960px;
+}
+
 :root {
     --primary: #3193cc;
     --secondary: #81DD90;
