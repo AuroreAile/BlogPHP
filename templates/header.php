@@ -1,3 +1,11 @@
+<?php
+  $mainMenu = [
+    ["page" => "index.php", "title" => "Accueil", "meta-description" => "TechTrendz, l'actu Tech !"],
+    ["page" => "actualites.php", "title" => "Actualités", "meta-description" => "Découvrez toutes nos   actualités."],
+    ["page" => "a_propos.php", "title" => "A propos", "meta-description" => "L'histoire du site   TechTredz!"],
+  ];
+?>
+
 <!DOCTYPE html>
 <html lang="fr">
 
@@ -6,9 +14,7 @@
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
   <meta http-equiv="X-UA-Compatible" content="IE=edge">
   <title>TechTrendz</title>
-  <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/css/bootstrap.min.css" rel="stylesheet"
-integrity="sha384-9ndCyUaIbzAi2FUVXJi0CjmCapSmO7SnpJef0486qhLnuZ2cdeRhO02iuK6FUUVM" 
-crossorigin="anonymous">
+  <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-9ndCyUaIbzAi2FUVXJi0CjmCapSmO7SnpJef0486qhLnuZ2cdeRhO02iuK6FUUVM" crossorigin="anonymous">
   <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap-icons@1.10.5/font/bootstrap-icons
 css">
   <link rel="stylesheet" href="../assets/css/override-bootstrap.css">
@@ -24,11 +30,12 @@ py  -3 mb-4 border-bottom">
       </a>
 
       <ul class="nav col-12 col-md-auto mb-2 justify-content-center mb-md-0">
-        <li><a href="#" class="nav-link px-2 link-secondary">Home</a></li>
-        <li><a href="#" class="nav-link px-2 link-dark">Features</a></li>
-        <li><a href="#" class="nav-link px-2 link-dark">Pricing</a></li>
-        <li><a href="#" class="nav-link px-2 link-dark">FAQs</a></li>
-        <li><a href="#" class="nav-link px-2 link-dark">About</a></li>
+
+        <?php foreach ($mainMenu as $key => $menuItem) { ?>
+
+        <li><a href="<?= $menuItem["page"] ?>" class="nav-link px-2 link-secondary"><?= $menuItem["title"] ?></a></li>
+
+        <?php } ?>
       </ul>
 
       <div class="col-md-3 text-end">
@@ -37,25 +44,3 @@ py  -3 mb-4 border-bottom">
       </div>
     </header>
   </div>
-
-  
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
