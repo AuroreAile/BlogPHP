@@ -1,9 +1,6 @@
 <?php
-  $mainMenu = [
-    "index.php" => ["title" => "Accueil", "head-title" => "Accueil TechTrendz","meta-description" => "TechTrendz, l'actu Tech !"],
-    "actualites.php" => ["title" => "Actualités", "meta-description" => "Découvrez toutes nos   actualités."],
-    "a_propos.php" => ["title" => "A propos", "meta-description" => "L'histoire du site   TechTredz!"],
-  ];
+
+$currentPage = basename($_SERVER["SCRIPT_NAME"]); // basename renvoie le nom du fichier courant (le dernier nom du fichier dans le chemin fourni)
 ?>
 
 <!DOCTYPE html>
@@ -13,7 +10,8 @@
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
   <meta http-equiv="X-UA-Compatible" content="IE=edge">
-  <title><?= $mainMenu["index.php"]["head-title"]?></title>
+  <meta name="description" content="<?= $mainMenu[$currentPage]["meta-description"]?>">
+  <title><?= $mainMenu[$currentPage]["head-title"]?></title>
 
   <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-9ndCyUaIbzAi2FUVXJi0CjmCapSmO7SnpJef0486qhLnuZ2cdeRhO02iuK6FUUVM" crossorigin="anonymous">
   <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap-icons@1.10.5/font/bootstrap-icons
@@ -30,13 +28,23 @@ py  -3 mb-4 border-bottom">
         <img src="../assets/images/logo-tech-trendz.png" width=150 alt="TechTrendz">
       </a>
 
-      <ul class="nav col-12 col-md-auto mb-2 justify-content-center mb-md-0">
+      <ul class="nav nav-pills col-12 col-md-auto mb-2 justify-content-center mb-md-0">
 
-        <?php foreach ($mainMenu as $key => $menuItem) { ?>
+        <?php foreach ($mainMenu as $key => $menuItem) {
+          if (!$menuItem["exclude"]) { // si l'index "exclude" n'existe pas, on affiche le menu
+           ?>
 
-        <li><a href="<?= $key ?>" class="nav-link px-2 link-secondary"><?= $menuItem["title"] ?></a></li>
+        <li class="nav-item"><a href="<?= $key ?>" class="nav-link px-2 <?php
+          if ($key === $currentPage) {echo "active";
+            //équivalent ternaire [plus court] echo ($key === $currentPage) ? "active" : ""; 
+          }
+        
+        ?>"><?= $menuItem["menu-title"] ?></a></li>
 
-        <?php } ?>
+        <?php } 
+        }
+        ?>
+        
       </ul>
 
       <div class="col-md-3 text-end">

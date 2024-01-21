@@ -1,6 +1,7 @@
 <!-- ALT MAJ F pour formater le code -->
 
 <?php
+  require_once "../lib/menu.php";
   require_once "../templates/header.php";
   require_once "../lib/articles.php";
 ?>

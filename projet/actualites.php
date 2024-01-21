@@ -1,5 +1,6 @@
 <?php
     require_once "../lib/articles.php";
+    require_once "../lib/menu.php";
     require_once "../templates/header.php";
 ?>
 
