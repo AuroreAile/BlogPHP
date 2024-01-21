@@ -1,8 +1,8 @@
 <?php
   $mainMenu = [
-    ["page" => "index.php", "title" => "Accueil", "meta-description" => "TechTrendz, l'actu Tech !"],
-    ["page" => "actualites.php", "title" => "Actualités", "meta-description" => "Découvrez toutes nos   actualités."],
-    ["page" => "a_propos.php", "title" => "A propos", "meta-description" => "L'histoire du site   TechTredz!"],
+    "index.php" => ["title" => "Accueil", "head-title" => "Accueil TechTrendz","meta-description" => "TechTrendz, l'actu Tech !"],
+    "actualites.php" => ["title" => "Actualités", "meta-description" => "Découvrez toutes nos   actualités."],
+    "a_propos.php" => ["title" => "A propos", "meta-description" => "L'histoire du site   TechTredz!"],
   ];
 ?>
 
@@ -13,7 +13,8 @@
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
   <meta http-equiv="X-UA-Compatible" content="IE=edge">
-  <title>TechTrendz</title>
+  <title><?= $mainMenu["index.php"]["head-title"]?></title>
+
   <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-9ndCyUaIbzAi2FUVXJi0CjmCapSmO7SnpJef0486qhLnuZ2cdeRhO02iuK6FUUVM" crossorigin="anonymous">
   <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap-icons@1.10.5/font/bootstrap-icons
 css">
@@ -33,7 +34,7 @@ py  -3 mb-4 border-bottom">
 
         <?php foreach ($mainMenu as $key => $menuItem) { ?>
 
-        <li><a href="<?= $menuItem["page"] ?>" class="nav-link px-2 link-secondary"><?= $menuItem["title"] ?></a></li>
+        <li><a href="<?= $key ?>" class="nav-link px-2 link-secondary"><?= $menuItem["title"] ?></a></li>
 
         <?php } ?>
       </ul>
