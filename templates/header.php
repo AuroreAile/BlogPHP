@@ -31,7 +31,7 @@ py  -3 mb-4 border-bottom">
       <ul class="nav nav-pills col-12 col-md-auto mb-2 justify-content-center mb-md-0">
 
         <?php foreach ($mainMenu as $key => $menuItem) {
-          if (!$menuItem["exclude"]) { // si l'index "exclude" n'existe pas, on affiche le menu
+          if (!array_key_exists("exclude",$menuItem)) { // est ce qu'il y a exclude dans le menu ? si il n'y est pas on affiche
            ?>
 
         <li class="nav-item"><a href="<?= $key ?>" class="nav-link px-2 <?php

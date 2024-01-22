@@ -1,16 +1,17 @@
 <?php
 require_once "../lib/articles.php";
 
-$id = $_GET['id'];
+$id = $_GET['id']; //viennent de l'url
 $article = $articles[$id];
+
+
 
 require_once "../lib/menu.php";
 $mainMenu["actualite.php"] = ["head_title" => $article["title"], "meta-description" => substr($article["content"], 0, 250), "exclude"=> true];
 //raccourcir meta-description ! substr($article["content"], 0, 150 caractères)
-
-
 require_once "../templates/header.php";
 ?>
+
 
 
 
